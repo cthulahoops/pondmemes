@@ -13,6 +13,10 @@ function drawMeme(meme) {
   console.log("Drawing meme: ", meme);
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   if (meme.image) {
+    console.log(meme.image.width, meme.image.height);
+    const aspectRatio = meme.image.width / meme.image.height;
+
+    canvas.height = canvas.width / aspectRatio;
     ctx.drawImage(meme.image, 0, 0, canvas.width, canvas.height);
   }
   if (meme.text) {
